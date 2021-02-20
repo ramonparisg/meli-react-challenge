@@ -1,7 +1,11 @@
-import React from "react";
+import React, { FunctionComponent } from "react";
 import PropTypes from "prop-types";
 
-const InputText = ({ placeholder }) => {
+type InputProps = {
+  placeholder: string;
+};
+
+const InputText: FunctionComponent<InputProps> = ({ placeholder }) => {
   return <input type={"text"} placeholder={placeholder} />;
 };
 
