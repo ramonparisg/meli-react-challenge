@@ -2,17 +2,22 @@
 
 .small {
   font-size: $font-small-size;
-  word-break: break-all;
+  word-break: break-word;
 
 }
 
 .medium {
   font-size: $font-size;
-  word-break: break-all;
+  word-break: break-word;
 
 }
 
 .big {
   font-size: $font-h2-size;
-  word-break: break-all;
+  word-break: break-word;
+}
+
+.xl {
+  font-size: $font-h1-size;
+  word-break: break-word;
 }

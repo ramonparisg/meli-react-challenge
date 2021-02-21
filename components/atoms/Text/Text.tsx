@@ -4,7 +4,7 @@ import style from "./Text.module.css";
 type Sizes = "small" | "medium" | "big";
 
 type Props = {
-  children: string;
+  children: string | number;
   size?: Sizes;
 };
 

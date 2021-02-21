@@ -1,10 +1,38 @@
 import React, { FunctionComponent } from "react";
-import SearchProductsTemplate from "@components/templates/SearchProductsTemplate/SearchProductsTemplate";
+import ProductsTemplate from "@components/templates/ProductsTemplate/ProductsTemplate";
+import List from "@components/organism/List/List";
 
 const Items: FunctionComponent = () => {
   return (
     <>
-      <SearchProductsTemplate />
+      <ProductsTemplate breadcrumbs={["text1", "text2", "text 3"]}>
+        <List>
+          {[
+            {
+              srcImage: "/logo.png",
+              title: "Title",
+              description: "description",
+              subtitle: "viva chavez",
+              badge: true,
+            },
+            {
+              srcImage: "/logo.png",
+              title: "Title",
+              description: "description",
+            },
+            {
+              srcImage: "/logo.png",
+              title: "Title",
+              description: "description",
+            },
+            {
+              srcImage: "/logo.png",
+              title: "Title",
+              description: "description",
+            },
+          ]}
+        </List>
+      </ProductsTemplate>
     </>
   );
 };

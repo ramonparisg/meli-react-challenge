@@ -12,6 +12,11 @@ const Index: FunctionComponent<ImageProps> = ({
   width,
   height,
 }: ImageProps) => {
+  if (width === "100%" && height === "100%") {
+    return (
+      <Image src={src} layout={"responsive"} width={"80%"} height={"50%"} />
+    );
+  }
   return <Image src={src} width={width} height={height} />;
 };
 
