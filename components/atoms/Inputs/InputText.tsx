@@ -1,16 +1,19 @@
 import React, { FunctionComponent } from "react";
-import PropTypes from "prop-types";
 
 type InputProps = {
-  placeholder: string;
+  placeholder?: string;
 };
 
-const InputText: FunctionComponent<InputProps> = ({ placeholder }) => {
-  return <input type={"text"} placeholder={placeholder} />;
-};
-
-InputText.propTypes = {
-  placeholder: PropTypes.string,
+const InputText: FunctionComponent<InputProps> = ({
+  placeholder,
+}: InputProps) => {
+  return (
+    <input
+      type={"text"}
+      placeholder={placeholder}
+      className={"w-100 h-100 p-2 borderless"}
+    />
+  );
 };
 
 export default InputText;

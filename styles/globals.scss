@@ -1,0 +1,35 @@
+@import "base";
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: $color-light-gray;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button, input[type=button] {
+  cursor: pointer;
+}
+
+.test-border {
+  border: 1px red solid;
+}
+
+.test-border-blue {
+  border: 1px blue solid;
+}
+
+@import "flex";
+@import "sizes";
+@import "colors";
+@import "borders";

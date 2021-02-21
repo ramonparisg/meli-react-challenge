@@ -1,0 +1,33 @@
+// colors
+$color-light-gray: #EBEBEB;
+$color-dark-gray: #828282;
+$color-white: #FFF;
+$color-black: #333;
+$color-blue: #2F80ED;
+$color-dark-blue: #2158a2;
+$color-yellow: #FFF059;
+
+$colors: ("light-gray": $color-light-gray,
+        "dark-gray": $color-dark-gray,
+        "white": $color-white,
+        "black": $color-black,
+        "blue": $color-blue,
+        "yellow": $color-yellow,
+);
+
+// fonts
+$font-family: 'Noto Sans', sans-serif;
+$font-medium-bold-weight: 500;
+$font-light-bold-weight: 100;
+$font-h1-size: 36px;
+$font-h2-size: 24px;
+$font-h3-size: 18px;
+$font-size: 16px;
+$font-small-size: 14px;
+
+// inputs
+$input-size-big: 54px;
+$input-size-medium: 40px;
+$input-size-small: 30px;
+
+

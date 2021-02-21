@@ -22,6 +22,9 @@
       ],
       "@dto/*": [
         "app/infrastructure/dto/*"
+      ],
+      "@styles/*": [
+        "styles/*"
       ]
     },
     "target": "es5",
