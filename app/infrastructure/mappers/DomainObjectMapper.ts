@@ -4,32 +4,46 @@ import { ItemResume } from "@domain/ItemResume";
 import { ItemDetail } from "@domain/ItemDetail";
 
 export function mapCategory(meLiApiCategory: MeLiApiCategory): Category[] {
-  return meLiApiCategory?.path_from_root?.map(({ id, name }) => ({ id, name }));
+  return (
+    meLiApiCategory?.path_from_root?.map(({ id, name }) => ({ id, name })) ?? []
+  );
 }
 
 export function mapDescription(
   meLiApiDescription: MeLiApiDescriptionResponse
 ): string {
-  return meLiApiDescription?.plain_text ?? meLiApiDescription.text;
+  if (meLiApiDescription) {
+    return meLiApiDescription.plain_text ?? meLiApiDescription.text;
+  }
+
+  return "";
 }
 
 export function mapSearchResult(
   meLiSearchDTO: MeLiApiSearchResponse
 ): SearchResult {
-  return {
-    query: meLiSearchDTO.query,
-    mainCategory: findCategoryWithMoreResults(meLiSearchDTO),
-    results: meLiSearchDTO?.results?.map(mapResultsToItems),
-  };
+  if (meLiSearchDTO) {
+    return {
+      query: meLiSearchDTO.query,
+      mainCategory: findCategoryWithMoreResults(meLiSearchDTO),
+      results: meLiSearchDTO?.results?.map(mapResultsToItems),
+    };
+  }
+
+  return undefined;
 }
 
 export function mapItemDetail(meLiItemDetail: MeLiApiItemDetail): ItemDetail {
-  const itemResume = mapResultsToItems(meLiItemDetail);
-  return {
-    ...itemResume,
-    sold_quantity: meLiItemDetail.sold_quantity,
-    description: "",
-  };
+  if (meLiItemDetail) {
+    const itemResume = mapResultsToItems(meLiItemDetail);
+    return {
+      ...itemResume,
+      sold_quantity: meLiItemDetail.sold_quantity,
+      description: "",
+    };
+  }
+
+  return undefined;
 }
 
 function findCategoryWithMoreResults(

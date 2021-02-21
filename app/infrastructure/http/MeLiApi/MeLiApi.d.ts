@@ -21,7 +21,7 @@ type MeLiApiItemResume = {
 
 type MeLiApiItemDetail = MeLiApiItemResume & {
   sold_quantity: number;
-  description: string;
+  description?: string;
 };
 
 type MeLiApiDescriptionResponse = {
@@ -36,7 +36,7 @@ type MeLiApiFilters = {
   values: Array<{
     id: string;
     name: string;
-    results: number;
+    results?: number;
   }>;
 };
 
