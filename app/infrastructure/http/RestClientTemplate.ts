@@ -13,7 +13,7 @@ export abstract class RestClientTemplate {
   }
 
   async get<T>(endpoint: string, queryParams?: unknown): Promise<T> {
-    this.log.info(
+    this.log.debug(
       `Calling endpoint ${
         this.baseUrl
       }${endpoint} with queryParams ${JSON.stringify(queryParams)}`
@@ -23,7 +23,7 @@ export abstract class RestClientTemplate {
       params: queryParams,
     });
     const config = response.config;
-    this.log.info(`Result of ${config.url}: ${response.status}`);
+    this.log.debug(`Result of ${config.url}: ${response.status}`);
     return response.data;
   }
 }
