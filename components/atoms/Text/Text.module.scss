@@ -1,0 +1,18 @@
+@import "../../../styles/base";
+
+.small {
+  font-size: $font-small-size;
+  word-break: break-all;
+
+}
+
+.medium {
+  font-size: $font-size;
+  word-break: break-all;
+
+}
+
+.big {
+  font-size: $font-h2-size;
+  word-break: break-all;
+}

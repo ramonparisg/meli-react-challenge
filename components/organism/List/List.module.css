@@ -1,0 +1,9 @@
+.item {
+  border-bottom: 1.5px #EBEBEB solid;
+}
+
+.item:last-child {
+  border-bottom-color: transparent;
+}
+
+/*# sourceMappingURL=List.module.css.map */

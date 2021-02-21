@@ -1,0 +1,9 @@
+@import "../../../styles/base";
+
+.item {
+  border-bottom: 1.5px $color-light-gray solid;
+}
+
+.item:last-child {
+  border-bottom-color: transparent;
+}

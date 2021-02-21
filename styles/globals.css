@@ -36,6 +36,10 @@ button, input[type=button] {
   flex: 1;
 }
 
+.center-div {
+  margin: auto;
+}
+
 .justify-content-center {
   justify-content: center;
 }
@@ -394,6 +398,11 @@ button, input[type=button] {
 
 .borderless {
   border-width: 0;
+}
+
+.box {
+  width: 75%;
+  margin: auto;
 }
 
 /*# sourceMappingURL=globals.css.map */

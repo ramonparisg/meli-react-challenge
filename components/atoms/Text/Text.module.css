@@ -1,0 +1,16 @@
+.small {
+  font-size: 14px;
+  word-break: break-all;
+}
+
+.medium {
+  font-size: 16px;
+  word-break: break-all;
+}
+
+.big {
+  font-size: 24px;
+  word-break: break-all;
+}
+
+/*# sourceMappingURL=Text.module.css.map */
