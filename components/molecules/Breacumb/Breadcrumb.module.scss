@@ -1,0 +1,22 @@
+@import "../../../styles/base";
+
+.color {
+  color: $color-dark-gray;
+  font-weight: $font-light-bold-weight;
+  margin-right: 7px;
+}
+
+.color:after {
+  content: "▸";
+  font-size: 20px;
+  margin-left: 7px;
+}
+
+.color:last-child:after {
+  content: "";
+
+}
+
+.color:last-child {
+  font-weight: $font-medium-bold-weight;
+}

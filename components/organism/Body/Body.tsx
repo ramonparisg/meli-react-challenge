@@ -5,7 +5,7 @@ type Props = {
 };
 
 const Body: React.FC = ({ children }: Props) => {
-  return <div className={"p-4"}>{children}</div>;
+  return <div className={"p-2"}>{children}</div>;
 };
 
 export default Body;

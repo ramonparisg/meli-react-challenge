@@ -1,10 +1,13 @@
 import React from "react";
 import List from "@components/organism/List/List";
+import Breadcrumb from "@components/molecules/Breacumb/Breadcrumb";
 
 const SearchProductsTemplate: React.FC = () => {
   return (
-    <div className={"box container test-border"}>
-      <div className={"item w-100 mb-2"}>Breadcumb</div>
+    <div className={"box container"}>
+      <div className={"item w-100 mb-2"}>
+        <Breadcrumb links={["texto 1", "texto 2", "texto 3"]} />
+      </div>
       <div className={"item w-100 bg-white"}>
         <List>
           {[

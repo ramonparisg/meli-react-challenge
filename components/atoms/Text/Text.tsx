@@ -5,7 +5,7 @@ type Sizes = "small" | "medium" | "big";
 
 type Props = {
   children: string;
-  size: Sizes;
+  size?: Sizes;
 };
 
 const Text: React.FC<Props> = ({ children, size = "small" }: Props) => {
