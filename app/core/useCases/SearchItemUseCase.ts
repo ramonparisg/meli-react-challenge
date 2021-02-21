@@ -1,20 +1,22 @@
 import { SearchResult } from "@domain/SearchResult";
-import { IMeLiSystemPort } from "@ports/IMeLiSystemPort";
+import { ISearchEngineSystemPort } from "@ports/ISearchEngineSystemPort";
 import { ISearchItemUseCase } from "@useCases/ISearchItemUseCase";
 
 export class SearchItemUseCase implements ISearchItemUseCase {
-  private readonly mercadoLibrePort: IMeLiSystemPort;
+  private readonly searchEngineSystemPort: ISearchEngineSystemPort;
 
-  constructor(mercadoLibrePort: IMeLiSystemPort) {
-    this.mercadoLibrePort = mercadoLibrePort;
+  constructor(searchEngineSystemPort: ISearchEngineSystemPort) {
+    this.searchEngineSystemPort = searchEngineSystemPort;
   }
 
   async searchItems(query: string): Promise<SearchResult> {
-    const searchResult = await this.mercadoLibrePort.searchItemsByQuery(query);
+    const searchResult = await this.searchEngineSystemPort.searchItemsByQuery(
+      query
+    );
 
     let categories = [];
     if (searchResult?.mainCategory?.id) {
-      categories = await this.mercadoLibrePort.searchCategoryRelationsById(
+      categories = await this.searchEngineSystemPort.searchCategoryRelationsById(
         searchResult.mainCategory.id
       );
     }

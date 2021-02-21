@@ -2,38 +2,34 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import searchItemUseCase from "@config/ConfigSearchItemUseCase";
 import { SearchResult } from "@domain/SearchResult";
 import author from "@dto/AuthorDto";
-
-interface SearchApiResponse {
-  author: { name: string; lastname: string };
-  categories: string[];
-  items: Array<{
-    id: string;
-    title: string;
-    price: {
-      currency: string;
-      amount: number;
-      decimals: number;
-    };
-    picture: string;
-    condition: string;
-    free_shipping: boolean;
-  }>;
-}
+import { buildLogger } from "@config/LoggerConfig";
+const log = buildLogger("/api/items");
 
 const search = (
   req: NextApiRequest,
   res: NextApiResponse
-): Promise<unknown> => {
+): Promise<SearchApiResponse> => {
   return new Promise((resolve, reject) => {
+    const query = req.query.q as string;
+    if (!query) {
+      log.error("No query sent");
+      res.status(400).json({ error: "No query sent" });
+      reject("No query sent");
+      return;
+    }
+
+    log.info(`Request with query: ${query} received`);
+
     searchItemUseCase
-      .searchItems(req.query.q as string)
+      .searchItems(query)
       .then((searchResult) => {
         const searchApiResponse = mapToResponseDto(searchResult);
         res.status(200).json(searchApiResponse);
+        log.info(`Request with query: ${query} responded with status 200`);
         resolve(searchApiResponse);
       })
       .catch((e) => {
-        console.error(e);
+        log.error(e);
         res.status(500).json({ error: e.message });
         reject(e);
       });

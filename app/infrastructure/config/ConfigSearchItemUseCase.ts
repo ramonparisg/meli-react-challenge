@@ -1,10 +1,10 @@
 import { MeLiApiRestAdapter } from "../http/MeLiApi/MeLiApiRestAdapter";
 import { SearchItemUseCase } from "@useCases/SearchItemUseCase";
-import { IMeLiSystemPort } from "@ports/IMeLiSystemPort";
+import { ISearchEngineSystemPort } from "@ports/ISearchEngineSystemPort";
 import { ISearchItemUseCase } from "@useCases/ISearchItemUseCase";
 
 function searchItemUseCase(
-  mercadoLibrePort: IMeLiSystemPort
+  mercadoLibrePort: ISearchEngineSystemPort
 ): ISearchItemUseCase {
   return new SearchItemUseCase(mercadoLibrePort);
 }
