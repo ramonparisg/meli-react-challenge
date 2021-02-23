@@ -1,11 +1,26 @@
 import React from "react";
-import Text, { TextProps } from "@components/atoms/Text/Text";
+import Text from "@components/atoms/Text/Text";
+import Link from "next/link";
 
-type ItemTitleProps = TextProps;
+type ItemTitleProps = {
+  children: string | number;
+  link?: string;
+};
 
 const ItemTitle: React.FC<ItemTitleProps> = (props) => {
-  const { children } = props;
-  return <Text size={"big"}>{children}</Text>;
+  const { children, link } = props;
+
+  const content = <Text size={"big"}>{children}</Text>;
+
+  if (link) {
+    return (
+      <Link href={link} passHref>
+        <a>{content}</a>
+      </Link>
+    );
+  }
+
+  return content;
 };
 
 ItemTitle.displayName = "ItemTitle";

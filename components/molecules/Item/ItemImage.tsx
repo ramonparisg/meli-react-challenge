@@ -1,19 +1,20 @@
 import React from "react";
-import Image, { ImageProps } from "@components/atoms/Image/index";
+import Image from "@components/atoms/Image/index";
 import Link from "next/link";
 
-type ImageItemProps = ImageProps & { link?: string };
+type ImageItemProps = { src: string; link?: string };
 const ItemImage: React.FC<ImageItemProps> = (props) => {
-  const { src, link, width = 90, height = 90 } = props;
+  const { src, link } = props;
+  const content = <Image src={src} width={90} height={90} />;
   if (link) {
     return (
-      <Link href={link}>
-        <Image src={src} width={width} height={height} />
+      <Link href={link} passHref>
+        <a>{content}</a>
       </Link>
     );
   }
 
-  return <Image src={src} width={width} height={height} />;
+  return content;
 };
 
 ItemImage.displayName = "ItemImage";

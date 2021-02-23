@@ -6,7 +6,7 @@ import ItemDescription from "@components/molecules/Item/ItemDescription";
 import ItemBadge from "@components/molecules/Item/ItemBadge";
 import ItemSubtitle from "@components/molecules/Item/ItemSubtitle";
 
-export interface ItemListProps extends React.FC {
+export interface ItemListComponent extends React.FC {
   Image: typeof ItemImage;
   Title: typeof ItemTitle;
   Description: typeof ItemDescription;
@@ -14,7 +14,7 @@ export interface ItemListProps extends React.FC {
   Subtitle: typeof ItemSubtitle;
 }
 
-const Item: ItemListProps = (props) => {
+const Item: ItemListComponent = (props) => {
   const { children } = props;
 
   const image = findByType(children, ItemImage);

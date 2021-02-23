@@ -18,8 +18,8 @@ const List: React.FC<Props> = ({ items }: Props) => {
       {items.map((c, i) => (
         <div key={i} className={style.item}>
           <Item>
-            <Item.Image src={c.srcImage} height={90} width={90} />
-            <Item.Title>{c.title}</Item.Title>
+            <Item.Image src={c.srcImage} link={"/items/1"} />
+            <Item.Title link={"/items/1"}>{c.title}</Item.Title>
             <Item.Description>{c.description}</Item.Description>
             {c.badge && <Item.Badge />}
             <Item.Subtitle>{c.subtitle}</Item.Subtitle>
