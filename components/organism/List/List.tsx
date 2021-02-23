@@ -1,9 +1,9 @@
 import React from "react";
-import ItemList from "@components/molecules/ItemList/ItemList";
+import Item from "@components/molecules/Item/Item";
 import style from "./List.module.css";
 
 type Props = {
-  children: Array<{
+  items: Array<{
     srcImage: string;
     title: string;
     description: string;
@@ -12,18 +12,18 @@ type Props = {
   }>;
 };
 
-const List: React.FC = ({ children }: Props) => {
+const List: React.FC<Props> = ({ items }: Props) => {
   return (
     <>
-      {children.map((c, i) => (
+      {items.map((c, i) => (
         <div key={i} className={style.item}>
-          <ItemList
-            srcImage={c.srcImage}
-            description={c.description}
-            title={c.title}
-            subtitle={c.subtitle}
-            badge={c.badge}
-          />
+          <Item>
+            <Item.Image src={c.srcImage} height={90} width={90} />
+            <Item.Title>{c.title}</Item.Title>
+            <Item.Description>{c.description}</Item.Description>
+            {c.badge && <Item.Badge />}
+            <Item.Subtitle>{c.subtitle}</Item.Subtitle>
+          </Item>
         </div>
       ))}
     </>

@@ -3,12 +3,12 @@ import style from "./Text.module.css";
 
 type Sizes = "small" | "medium" | "big";
 
-type Props = {
+export interface TextProps {
   children: string | number;
   size?: Sizes;
-};
+}
 
-const Text: React.FC<Props> = ({ children, size = "small" }: Props) => {
+const Text: React.FC<TextProps> = ({ children, size = "small" }: TextProps) => {
   return <span className={style[size]}>{children}</span>;
 };
 

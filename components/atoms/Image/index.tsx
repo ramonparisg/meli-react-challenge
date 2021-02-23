@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from "react";
 import Image from "next/image";
 
-type ImageProps = {
+export interface ImageProps {
   src: string;
   width: string | number;
   height: string | number;
-};
+}
 
 const Index: FunctionComponent<ImageProps> = ({
   src,

@@ -6,13 +6,13 @@ const Items: FunctionComponent = () => {
   return (
     <>
       <ProductsTemplate breadcrumbs={["text1", "text2", "text 3"]}>
-        <List>
-          {[
+        <List
+          items={[
             {
               srcImage: "/logo.png",
               title: "Title",
               description: "description",
-              subtitle: "viva chavez",
+              subtitle: "subtitle",
               badge: true,
             },
             {
@@ -31,7 +31,7 @@ const Items: FunctionComponent = () => {
               description: "description",
             },
           ]}
-        </List>
+        />
       </ProductsTemplate>
     </>
   );
