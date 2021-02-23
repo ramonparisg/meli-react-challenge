@@ -1,18 +1,32 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import InputText from "@components/atoms/Inputs/InputText";
 import IconButton from "@components/atoms/Buttons/IconButton";
 
-const Index: FunctionComponent = () => {
+interface SearchBarProps {
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onSubmit: (e: React.FormEvent) => void;
+}
+
+const Index: React.FC<SearchBarProps> = (props) => {
+  const { onChange, value, onSubmit } = props;
+
   return (
     <>
-      <div className={"container border-dark-gray"}>
-        <div className={"grow"}>
-          <InputText placeholder={"Nunca dejes de buscar"} />
+      <form onSubmit={onSubmit}>
+        <div className={"container border-dark-gray"}>
+          <div className={"grow"}>
+            <InputText
+              placeholder={"Nunca dejes de buscar"}
+              value={value}
+              onChange={onChange}
+            />
+          </div>
+          <div style={{ width: "50px" }}>
+            <IconButton icon={"🔍"} />
+          </div>
         </div>
-        <div style={{ width: "50px" }} className={""}>
-          <IconButton icon={"🔍"} />
-        </div>
-      </div>
+      </form>
     </>
   );
 };

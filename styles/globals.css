@@ -425,6 +425,10 @@ button, input[type=button] {
   font-size: 18px;
 }
 
+.small-font {
+  font-size: 14px;
+}
+
 .lh-1 {
   line-height: 1.1;
 }

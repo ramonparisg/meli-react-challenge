@@ -1,40 +1,48 @@
-import React, { FunctionComponent } from "react";
+import React from "react";
 import ProductsTemplate from "@components/templates/ProductsTemplate/ProductsTemplate";
-import List from "@components/organism/List/List";
+import List, { ItemListProps } from "@components/organism/List/List";
+import { GetServerSideProps, NextPage } from "next";
+import adapter from "@infrastructure/http/BaseApi/BaseApiAdapter";
 
-const Items: FunctionComponent = () => {
+interface Props {
+  items: Array<ItemListProps>;
+  categories: Array<string>;
+}
+
+const Items: NextPage<Props> = ({ categories, items }) => {
   return (
     <>
-      <ProductsTemplate breadcrumbs={["text1", "text2", "text 3"]}>
-        <List
-          items={[
-            {
-              srcImage: "/logo.png",
-              title: "Title",
-              description: "description",
-              subtitle: "subtitle",
-              badge: true,
-            },
-            {
-              srcImage: "/logo.png",
-              title: "Title",
-              description: "description",
-            },
-            {
-              srcImage: "/logo.png",
-              title: "Title",
-              description: "description",
-            },
-            {
-              srcImage: "/logo.png",
-              title: "Title",
-              description: "description",
-            },
-          ]}
-        />
+      <ProductsTemplate breadcrumbs={categories}>
+        <List items={items} />
       </ProductsTemplate>
     </>
   );
+};
+
+export const getServerSideProps: GetServerSideProps<Props> = async ({
+  query,
+}) => {
+  if (!query.search) {
+    return {
+      props: {
+        categories: [],
+        items: [],
+      },
+    };
+  }
+  const { categories, items } = await adapter.search(query.search as string);
+
+  return {
+    props: {
+      categories,
+      items: items?.map((item) => ({
+        srcImage: item.picture,
+        badge: item.free_shipping,
+        description: item.title,
+        title: item.price.amount.toString(),
+      })),
+    },
+  };
 };
 
 export default Items;

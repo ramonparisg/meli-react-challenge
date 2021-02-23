@@ -17,6 +17,9 @@
       "@config/*": [
         "app/infrastructure/config/*"
       ],
+      "@infrastructure/*": [
+        "app/infrastructure/*"
+      ],
       "@env": [
         "app/infrastructure/config/EnvironmentVariables"
       ],

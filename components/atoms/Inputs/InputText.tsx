@@ -1,17 +1,16 @@
 import React, { FunctionComponent } from "react";
 
-type InputProps = {
-  placeholder?: string;
-};
-
-const InputText: FunctionComponent<InputProps> = ({
-  placeholder,
-}: InputProps) => {
+const InputText: FunctionComponent<React.HTMLProps<HTMLInputElement>> = (
+  props
+) => {
+  const { placeholder, onChange, value } = props;
   return (
     <input
       type={"text"}
       placeholder={placeholder}
-      className={"w-100 h-100 p-2 borderless"}
+      onChange={onChange}
+      value={value}
+      className={"w-100 h-100 p-2 borderless small-font"}
     />
   );
 };

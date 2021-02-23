@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from "react";
 import ProductsTemplate from "@components/templates/ProductsTemplate/ProductsTemplate";
-import ItemDetail from "@components/organism/ItemDetail/ItemDetail";
+import ItemDetail from "@components/organism/ProductDetail/ItemDetail";
 
 const ItemDetailPage: FunctionComponent = () => {
   return (

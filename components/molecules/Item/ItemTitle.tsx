@@ -1,6 +1,7 @@
 import React from "react";
 import Text from "@components/atoms/Text/Text";
 import Link from "next/link";
+import Currency from "@components/atoms/Text/Currency";
 
 type ItemTitleProps = {
   children: string | number;
@@ -10,7 +11,14 @@ type ItemTitleProps = {
 const ItemTitle: React.FC<ItemTitleProps> = (props) => {
   const { children, link } = props;
 
-  const content = <Text size={"big"}>{children}</Text>;
+  let content = <Text size={"big"}>{children}</Text>;
+  if (!Number.isNaN(children)) {
+    content = (
+      <Currency size={"big"} minDecimals={0}>
+        {children as number}
+      </Currency>
+    );
+  }
 
   if (link) {
     return (

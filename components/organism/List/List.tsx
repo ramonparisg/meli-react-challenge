@@ -2,17 +2,19 @@ import React from "react";
 import Item from "@components/molecules/Item/Item";
 import style from "./List.module.css";
 
-type Props = {
-  items: Array<{
-    srcImage: string;
-    title: string;
-    description: string;
-    subtitle?: string;
-    badge?: boolean;
-  }>;
-};
+export interface ItemListProps {
+  srcImage: string;
+  title: string;
+  description: string;
+  subtitle?: string;
+  badge?: boolean;
+}
 
-const List: React.FC<Props> = ({ items }: Props) => {
+interface ListProps {
+  items: Array<ItemListProps>;
+}
+
+const List: React.FC<ListProps> = ({ items }: ListProps) => {
   return (
     <>
       {items.map((c, i) => (

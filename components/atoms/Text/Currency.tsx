@@ -6,14 +6,20 @@ type Sizes = "small" | "medium" | "big" | "xl";
 type Props = {
   children: number;
   size?: Sizes;
+  minDecimals: number;
 };
 
-const Currency: React.FC<Props> = ({ children, size = "small" }: Props) => {
+const Currency: React.FC<Props> = ({
+  children,
+  size = "small",
+  minDecimals,
+}: Props) => {
   return (
     <span className={style[size]}>
       {new Intl.NumberFormat("es-AR", {
         style: "currency",
         currency: "ARS",
+        minimumFractionDigits: minDecimals,
       }).format(children)}
     </span>
   );
