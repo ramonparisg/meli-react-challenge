@@ -40,6 +40,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
         badge: item.free_shipping,
         description: item.title,
         title: item.price.amount.toString(),
+        link: `/items/${encodeURIComponent(item.id)}`,
       })),
     },
   };

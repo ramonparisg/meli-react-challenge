@@ -37,7 +37,10 @@ const handle = (
 };
 
 function mapToResponseDto(item: ItemDetail): ItemDetailApiResponse {
-  return { ...author, item: item };
+  return {
+    ...author,
+    item: { ...item, condition: item?.condition === "new" ? "Nuevo" : "Usado" },
+  };
 }
 
 export default handle;

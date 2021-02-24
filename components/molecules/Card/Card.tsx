@@ -19,7 +19,7 @@ const Card: React.FC<Detail> = (props: Detail) => {
         <Text>{props.condition}</Text> -{" "}
         <Text>{props.sold_quantity + " vendidos"}</Text>
       </div>
-      <div className={"item w-100 medium-weight"}>
+      <div className={"item w-100 medium-weight lh-4"}>
         <Text size={"big"}>{props.title}</Text>
       </div>
       <div className={"item w-100 mb-4 mt-2"}>

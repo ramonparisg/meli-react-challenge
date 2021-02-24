@@ -6,13 +6,13 @@ type Sizes = "small" | "medium" | "big" | "xl";
 type Props = {
   children: number;
   size?: Sizes;
-  minDecimals: number;
+  minDecimals?: number;
 };
 
 const Currency: React.FC<Props> = ({
   children,
   size = "small",
-  minDecimals,
+  minDecimals = 0,
 }: Props) => {
   return (
     <span className={style[size]}>

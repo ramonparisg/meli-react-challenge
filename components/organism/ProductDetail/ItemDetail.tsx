@@ -19,7 +19,7 @@ type Props = {
 
 const ItemDetail: React.FC<Props> = ({ srcImage, details }: Props) => {
   return (
-    <div className={"container"}>
+    <div className={"container p-3"}>
       <div className={"item w-75 mh-75"}>
         <Image src={srcImage} height={"100%"} width={"100%"} />
       </div>
@@ -30,7 +30,7 @@ const ItemDetail: React.FC<Props> = ({ srcImage, details }: Props) => {
         <div className={"medium-weight"}>
           <Text size={"big"}>Descripción del producto</Text>
         </div>
-        <div className={"light-weight mt-4 justify-text"}>
+        <div className={"light-weight mt-4 justify-text lh-5"}>
           <Text size={"medium"}>{details.description}</Text>
         </div>
       </div>
