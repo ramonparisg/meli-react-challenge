@@ -1,49 +1,25 @@
 import React from "react";
-import ProductsTemplate from "@components/templates/ProductsTemplate/ProductsTemplate";
-import ItemDetail from "@components/organism/ProductDetail/ItemDetail";
 import { GetServerSideProps } from "next";
 import adapter from "@infrastructure/http/BaseApi/BaseApiAdapter";
+import ProductDetailTemplate from "@components/templates/ProductDetailTemplate/ProductDetailTemplate";
 
 interface Props {
-  condition: string;
-  sold_quantity: number;
-  title: string;
-  price: number;
-  decimals: number;
-  description: string;
   categories: string[];
-  picture: string;
+  item: {
+    condition: string;
+    sold_quantity: number;
+    title: string;
+    price: number;
+    decimals: number;
+    description: string;
+    picture: string;
+  };
 }
 
 const ItemDetailPage: React.FC<Props> = (props) => {
-  const {
-    title,
-    description,
-    condition,
-    price,
-    categories,
-    decimals,
-    sold_quantity,
-    picture,
-  } = props;
+  const { categories, item } = props;
 
-  return (
-    <>
-      <ProductsTemplate breadcrumbs={categories}>
-        <ItemDetail
-          details={{
-            description: description,
-            condition: condition,
-            decimals: decimals,
-            price: price,
-            title: title,
-            sold_quantity: sold_quantity,
-          }}
-          srcImage={picture}
-        />
-      </ProductsTemplate>
-    </>
-  );
+  return <ProductDetailTemplate breadcrumbs={categories} item={item} />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({
@@ -57,18 +33,20 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
     };
   }
 
-  const { item } = await adapter.findItemById(id as string);
+  const { item, categories } = await adapter.findItemById(id as string);
 
   return {
     props: {
-      categories: [],
-      price: item.price.amount,
-      decimals: item.price.decimals,
-      condition: item.condition,
-      sold_quantity: item.sold_quantity,
-      title: item.title,
-      description: item.description,
-      picture: item.picture,
+      categories,
+      item: {
+        price: item.price.amount,
+        decimals: item.price.decimals,
+        condition: item.condition,
+        sold_quantity: item.sold_quantity,
+        title: item.title,
+        description: item.description,
+        picture: item.picture,
+      },
     },
   };
 };

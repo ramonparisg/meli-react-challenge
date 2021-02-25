@@ -1,6 +1,6 @@
 import React from "react";
-import ProductsTemplate from "@components/templates/ProductsTemplate/ProductsTemplate";
-import List, { ItemListProps } from "@components/organism/List/List";
+import SearchItemsTemplate from "@components/templates/SearchItemTemplate/SearchItemsTemplate";
+import { ItemListProps } from "@components/organism/List/List";
 import { GetServerSideProps, NextPage } from "next";
 import adapter from "@infrastructure/http/BaseApi/BaseApiAdapter";
 
@@ -10,13 +10,7 @@ interface Props {
 }
 
 const Items: NextPage<Props> = ({ categories, items }) => {
-  return (
-    <>
-      <ProductsTemplate breadcrumbs={categories}>
-        <List items={items} />
-      </ProductsTemplate>
-    </>
-  );
+  return <SearchItemsTemplate breadcrumbs={categories} items={items} />;
 };
 
 export const getServerSideProps: GetServerSideProps<Props> = async ({

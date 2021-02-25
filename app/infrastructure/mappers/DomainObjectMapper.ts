@@ -40,6 +40,8 @@ export function mapItemDetail(meLiItemDetail: MeLiApiItemDetail): ItemDetail {
       ...itemResume,
       sold_quantity: meLiItemDetail.sold_quantity,
       description: "",
+      categoryId: meLiItemDetail.category_id,
+      parentCategories: [],
     };
   }
 

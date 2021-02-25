@@ -21,4 +21,5 @@ type ItemResumeApiDto = {
 type ItemDetailApiResponse = {
   author: Author;
   item: ItemResumeApiDto & { sold_quantity: number; description: string };
+  categories: string[];
 };

@@ -1,35 +1,39 @@
 import React from "react";
-import Text from "@components/atoms/Text/Text";
-import Button from "@components/atoms/Buttons/Button";
-import Currency from "@components/atoms/Text/Currency";
+import findByType from "@components/utils/ChildrenComponentFinder";
+import CardHeader from "@components/molecules/Card/CardHeader";
+import CardTitle from "@components/molecules/Card/CardTitle";
+import CardPrice from "@components/molecules/Card/CardPrice";
+import CardAction from "@components/molecules/Card/CardAction";
 
-type Detail = {
-  condition: string;
-  sold_quantity: number;
-  title: string;
-  price: number;
-  decimals: number;
-  description: string;
-};
 
-const Card: React.FC<Detail> = (props: Detail) => {
+export interface CardComponent extends React.FC {
+  Header: typeof CardHeader;
+  Title: typeof CardTitle;
+  Price: typeof CardPrice;
+  Action: typeof CardAction;
+}
+
+const Card: CardComponent = (props) => {
+  const { children } = props;
+
+  const header = findByType(children, CardHeader);
+  const title = findByType(children, CardTitle);
+  const price = findByType(children, CardPrice);
+  const action = findByType(children, CardAction);
+
   return (
     <div className={"container"}>
-      <div className={"item w-100"}>
-        <Text>{props.condition}</Text> -{" "}
-        <Text>{props.sold_quantity + " vendidos"}</Text>
-      </div>
-      <div className={"item w-100 medium-weight lh-4"}>
-        <Text size={"big"}>{props.title}</Text>
-      </div>
-      <div className={"item w-100 mb-4 mt-2"}>
-        <Currency size={"xl"}>{props.price}</Currency>
-      </div>
-      <div className={"item w-100 mt-5"}>
-        <Button>Comprar</Button>
-      </div>
+      <div className={"item w-100"}>{header}</div>
+      <div className={"item w-100 medium-weight lh-4"}>{title}</div>
+      <div className={"item w-100 mb-4 mt-2"}>{price}</div>
+      <div className={"item w-100 mt-5"}>{action}</div>
     </div>
   );
 };
+
+Card.Header = CardHeader;
+Card.Title = CardTitle;
+Card.Price = CardPrice;
+Card.Action = CardAction;
 
 export default Card;
