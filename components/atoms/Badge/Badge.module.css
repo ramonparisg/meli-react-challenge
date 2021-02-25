@@ -1,0 +1,20 @@
+.badge {
+  border-radius: 100px;
+  display: inline-block;
+}
+
+.big {
+  padding: 7px;
+  width: 10px;
+}
+
+.small {
+  padding: 5px;
+  width: 5px;
+}
+
+.green {
+  background-color: #00B364;
+}
+
+/*# sourceMappingURL=Badge.module.css.map */

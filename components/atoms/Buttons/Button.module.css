@@ -1,0 +1,14 @@
+.button {
+  border-radius: 5px;
+}
+
+.blue {
+  background-color: #2f80ed;
+  color: #FFF;
+  transition: 0.8s;
+}
+.blue:hover {
+  background-color: #2158a2;
+}
+
+/*# sourceMappingURL=Button.module.css.map */
