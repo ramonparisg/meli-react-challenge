@@ -31,7 +31,12 @@ const ProductDetailTemplate: React.FC<Props> = (props) => {
       <div className={"item w-100 bg-white"}>
         <div className={"container p-3"}>
           <div className={"item w-75 mh-75"}>
-            <Image src={item.picture} height={"100%"} width={"100%"} />
+            <Image
+              src={item.picture}
+              height={"100%"}
+              width={"100%"}
+              alt={item.title}
+            />
           </div>
           <div className={"item w-25 center-div"}>
             <Card {...item}>

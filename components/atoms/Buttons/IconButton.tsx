@@ -1,16 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
 type ButtonProps = {
-  icon: string;
+  children: ReactNode;
 };
 
-const IconButton: React.FC<ButtonProps> = ({ icon }: ButtonProps) => {
+const IconButton: React.FC<ButtonProps> = ({ children }: ButtonProps) => {
   return (
-    <button
-      className={"w-100 h-100 borderless bg-light-gray"}
-      style={{ fontSize: "16px" }}
-    >
-      {icon}
+    <button className={"w-100 h-100 borderless bg-light-gray"}>
+      {children}
     </button>
   );
 };

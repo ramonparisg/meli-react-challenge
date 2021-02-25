@@ -1,3 +1,8 @@
+.container-inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;

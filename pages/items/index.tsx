@@ -35,6 +35,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
         description: item.title,
         title: item.price.amount.toString(),
         link: `/items/${encodeURIComponent(item.id)}`,
+        subtitle: "random text",
       })),
     },
   };

@@ -27,6 +27,11 @@ button, input[type=button] {
   border: 1px blue solid;
 }
 
+.container-inline {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -373,15 +378,15 @@ button, input[type=button] {
 }
 
 .blue {
-  color: #2F80ED;
+  color: #2f80ed;
 }
 
 .bg-blue {
-  background-color: #2F80ED;
+  background-color: #2f80ed;
 }
 
 .border-blue {
-  border: 1px #2F80ED solid;
+  border: 1px #2f80ed solid;
 }
 
 .yellow {
@@ -394,6 +399,18 @@ button, input[type=button] {
 
 .border-yellow {
   border: 1px #FFF059 solid;
+}
+
+.light-green {
+  color: #00B364;
+}
+
+.bg-light-green {
+  background-color: #00B364;
+}
+
+.border-light-green {
+  border: 1px #00B364 solid;
 }
 
 .borderless {

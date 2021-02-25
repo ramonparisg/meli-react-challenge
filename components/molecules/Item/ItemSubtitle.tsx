@@ -5,7 +5,11 @@ type ItemSubtitleProps = TextProps;
 
 const ItemSubtitle: React.FC<ItemSubtitleProps> = (props) => {
   const { children } = props;
-  return <Text size={"small"}>{children}</Text>;
+  return (
+    <span className={"dark-gray"}>
+      <Text size={"xs"}>{children}</Text>
+    </span>
+  );
 };
 
 ItemSubtitle.displayName = "ItemSubtitle";

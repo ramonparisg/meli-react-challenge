@@ -1,0 +1,18 @@
+@import "../../../styles/base";
+
+.button {
+  border-radius: 5px;
+}
+
+.blue {
+  background-color: $color-blue;
+  color: $color-white;
+  transition: 0.8s;
+
+  &:hover {
+    background-color: $color-dark-blue;
+  }
+}
+
+.blue:hover {
+}

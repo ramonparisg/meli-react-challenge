@@ -1,6 +1,8 @@
 import React from "react";
 import InputText from "@components/atoms/Inputs/InputText";
 import IconButton from "@components/atoms/Buttons/IconButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 interface SearchBarProps {
   value: string;
@@ -23,7 +25,7 @@ const Index: React.FC<SearchBarProps> = (props) => {
             />
           </div>
           <div style={{ width: "50px" }}>
-            <IconButton icon={"🔍"} />
+            <IconButton>{<FontAwesomeIcon icon={faSearch} />}</IconButton>
           </div>
         </div>
       </form>

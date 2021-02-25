@@ -3,9 +3,10 @@ $color-light-gray: #EBEBEB;
 $color-dark-gray: #828282;
 $color-white: #FFF;
 $color-black: #333;
-$color-blue: #2F80ED;
+$color-blue: #2f80ed;
 $color-dark-blue: #2158a2;
 $color-yellow: #FFF059;
+$color-light-green: #00B364;
 
 $colors: ("light-gray": $color-light-gray,
         "dark-gray": $color-dark-gray,
@@ -13,6 +14,7 @@ $colors: ("light-gray": $color-light-gray,
         "black": $color-black,
         "blue": $color-blue,
         "yellow": $color-yellow,
+        "light-green":$color-light-green,
 );
 
 // fonts

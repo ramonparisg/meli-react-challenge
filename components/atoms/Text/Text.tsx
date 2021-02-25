@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./Text.module.css";
 
-type Sizes = "small" | "medium" | "big";
+type Sizes = "xs" | "small" | "medium" | "big";
 
 export interface TextProps {
   children: string | number;

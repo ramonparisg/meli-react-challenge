@@ -19,18 +19,25 @@ const Navbar: FunctionComponent = () => {
         <div className={"item"}>
           <Link href={"/"} passHref>
             <a>
-              <Image src={"/logo.png"} width={134} height={34} />
+              <Image
+                src={"/logo.png"}
+                width={134}
+                height={34}
+                alt={"Mercado Libre logo"}
+              />
             </a>
           </Link>
         </div>
         <div className={"item grow"}>
           <SearchBar
             value={value}
-            onSubmit={async (e) => {
-              await router.push({
-                pathname: "/items",
-                query: { search: value },
-              });
+            onSubmit={(e) => {
+              router
+                .push({
+                  pathname: "/items",
+                  query: { search: value },
+                })
+                .then((r) => console.log("pushed", r));
               e.preventDefault();
             }}
             onChange={(e) => setValue(e.target.value)}

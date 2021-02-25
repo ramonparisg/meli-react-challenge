@@ -26,7 +26,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
   params,
 }) => {
   const id = params.id;
-  console.log("id", id);
   if (!id) {
     return {
       props: undefined,

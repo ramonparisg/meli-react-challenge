@@ -1,8 +1,8 @@
 import React from "react";
-import Text from "@components/atoms/Text/Text";
+import Badge from "@components/atoms/Badge/Badge";
 
 const ItemBadge: React.FC = () => {
-  return <Text size={"medium"}>🚛</Text>;
+  return <Badge color={"green"} size={"big"} />;
 };
 
 ItemBadge.displayName = "ItemBadge";

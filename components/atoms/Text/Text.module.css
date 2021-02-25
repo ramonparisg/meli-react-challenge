@@ -18,4 +18,9 @@
   word-break: break-word;
 }
 
+.xs {
+  font-size: 12px;
+  word-break: break-word;
+}
+
 /*# sourceMappingURL=Text.module.css.map */

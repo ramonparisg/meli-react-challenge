@@ -5,11 +5,13 @@ import Link from "next/link";
 type ImageItemProps = { src: string; link?: string };
 const ItemImage: React.FC<ImageItemProps> = (props) => {
   const { src, link } = props;
-  const content = <Image src={src} width={90} height={90} />;
+  const content = (
+    <Image src={src} width={90} height={90} alt={`product image: ${src}`} />
+  );
   if (link) {
     return (
       <Link href={link} passHref>
-        <a>{content}</a>
+        <a> {content}</a>
       </Link>
     );
   }

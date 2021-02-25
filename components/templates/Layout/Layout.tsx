@@ -9,8 +9,12 @@ type Props = {
 const Layout: React.FC = ({ children }: Props) => {
   return (
     <>
-      <Navbar />
-      <Body>{children}</Body>
+      <nav>
+        <Navbar />
+      </nav>
+      <main>
+        <Body>{children}</Body>
+      </main>
     </>
   );
 };
