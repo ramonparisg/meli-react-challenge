@@ -12,10 +12,17 @@
   font-size: 24px;
   word-break: break-word;
 }
+.big sup {
+  font-size: 10px;
+}
 
 .xl {
   font-size: 36px;
   word-break: break-word;
+}
+.xl sup {
+  margin-left: 2px;
+  font-size: 18px;
 }
 
 .xs {

@@ -15,11 +15,20 @@
 .big {
   font-size: $font-h2-size;
   word-break: break-word;
+
+  sup {
+    font-size: 10px;
+  }
 }
 
 .xl {
   font-size: $font-h1-size;
   word-break: break-word;
+
+  sup {
+    margin-left: 2px;
+    font-size: 18px;
+  }
 }
 
 .xs {

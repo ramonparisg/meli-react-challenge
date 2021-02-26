@@ -199,8 +199,10 @@ describe("mapSearchResult testing", () => {
       title: result.title,
       price: {
         currency: result.currency_id,
-        amount: result.price,
-        decimals: 0,
+        amount: result.price ? Math.trunc(result.price) : 0,
+        decimals: result.price
+          ? Number((result.price % 1).toFixed(2).replace("0.", ""))
+          : 0,
       },
       picture: result.thumbnail,
       condition: result.condition,
@@ -235,9 +237,11 @@ describe("mapItemDetail testing", () => {
     expect(itemDetail).not.toBeFalsy();
     expect(itemDetail.id).toStrictEqual(meLiObject.id);
     expect(itemDetail.title).toStrictEqual(meLiObject.title);
-    expect(itemDetail.price.amount).toStrictEqual(meLiObject.price);
+    expect(itemDetail.price.amount).toStrictEqual(Math.trunc(meLiObject.price));
     expect(itemDetail.price.currency).toStrictEqual(meLiObject.currency_id);
-    expect(itemDetail.price.decimals).toStrictEqual(0);
+    expect(itemDetail.price.decimals).toStrictEqual(
+      Number((meLiObject.price % 1).toFixed(2).replace("0.", ""))
+    );
     expect(itemDetail.picture).toStrictEqual(meLiObject.thumbnail);
     expect(itemDetail.condition).toStrictEqual(meLiObject.condition);
     expect(itemDetail.free_shipping).toStrictEqual(
@@ -245,6 +249,8 @@ describe("mapItemDetail testing", () => {
     );
     expect(itemDetail.description).toStrictEqual("");
     expect(itemDetail.sold_quantity).toStrictEqual(meLiObject.sold_quantity);
+    expect(itemDetail.categoryId).toStrictEqual(meLiObject.category_id);
+    expect(itemDetail.parentCategories).toStrictEqual([]);
   });
 
   test("given falsy param return undefined", () => {

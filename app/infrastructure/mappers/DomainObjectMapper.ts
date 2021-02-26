@@ -68,8 +68,10 @@ function mapResultsToItems(result: MeLiApiItemResume): ItemResume {
     title: result.title,
     price: {
       currency: result.currency_id,
-      amount: result.price,
-      decimals: 0,
+      amount: result.price ? Math.trunc(result.price) : 0,
+      decimals: result.price
+        ? Number((result.price % 1).toFixed(2).replace("0.", ""))
+        : 0,
     },
     picture: result.thumbnail,
     condition: result.condition,

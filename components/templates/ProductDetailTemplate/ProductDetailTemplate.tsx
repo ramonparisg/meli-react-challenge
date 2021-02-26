@@ -42,7 +42,7 @@ const ProductDetailTemplate: React.FC<Props> = (props) => {
             <Card {...item}>
               <Card.Header>{headerText}</Card.Header>
               <Card.Title>{item.title}</Card.Title>
-              <Card.Price>{item.price}</Card.Price>
+              <Card.Price int={item.price} decimal={item.decimals} />
               <Card.Action onClick={() => alert("Not implemented yet :)")} />
             </Card>
           </div>

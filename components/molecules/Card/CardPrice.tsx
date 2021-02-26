@@ -1,11 +1,15 @@
 import React from "react";
 import Currency from "@components/atoms/Text/Currency";
 
-type CardPriceProps = { children: number };
+type CardPriceProps = { int: number; decimal: number };
 
 const CardPrice: React.FC<CardPriceProps> = (props) => {
-  const { children } = props;
-  return <Currency size={"xl"}>{children}</Currency>;
+  const { children, int, decimal } = props;
+  return (
+    <Currency size={"xl"} int={int} decimal={decimal}>
+      {children}
+    </Currency>
+  );
 };
 
 CardPrice.displayName = "CardPrice";

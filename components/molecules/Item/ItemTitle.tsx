@@ -14,9 +14,7 @@ const ItemTitle: React.FC<ItemTitleProps> = (props) => {
   let content = <Text size={"big"}>{children}</Text>;
   if (!Number.isNaN(children)) {
     content = (
-      <Currency size={"big"} minDecimals={0}>
-        {children as number}
-      </Currency>
+      <Currency size={"big"} minDecimals={0} int={children as number} />
     );
   }
 

@@ -1,11 +1,10 @@
 import { RestClientTemplate } from "../RestClientTemplate";
-// import { BFF_API_URL } from "@env";
+import { BFF_API_URL } from "@env";
 import { buildLogger } from "@config/LoggerConfig";
 
-class BaseApiAdapter extends RestClientTemplate {
+export class BaseApiAdapter extends RestClientTemplate {
   constructor() {
-    // super(BFF_API_URL, buildLogger("BaseApiAdapter"));
-    super("http://localhost:3000/api", buildLogger("BaseApiAdapter"));
+    super(BFF_API_URL, buildLogger("BaseApiAdapter"));
   }
 
   async search(query: string): Promise<SearchApiResponse> {
