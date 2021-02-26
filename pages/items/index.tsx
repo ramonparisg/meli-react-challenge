@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({
         srcImage: item.picture,
         badge: item.free_shipping,
         description: item.title,
-        title: item.price.amount.toString(),
+        title: (item.price.amount + item.price.decimals / 100).toString(),
         link: `/items/${encodeURIComponent(item.id)}`,
         subtitle: "random text",
       })),
